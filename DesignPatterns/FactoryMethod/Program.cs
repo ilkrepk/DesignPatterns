@@ -11,6 +11,7 @@ namespace FactoryMethod
         static void Main(string[] args)
         {
             CustomerManager customerManager = new CustomerManager(new LoggerFactory());
+            //CustomerManager customerManager = new CustomerManager(new LoggerFactory2());
             customerManager.Save();
             Console.ReadLine();
         }
@@ -29,8 +30,8 @@ namespace FactoryMethod
     {
         public ILogger CreateLogger()
         {
-            //Burada bir iş geliştirip iş sonucunda ne döndüreceğimize karar verip, fabrikanın nasıl bir logger üreteceğine göre return işlemi yapabiliriz. Buda bizi ELogger'a bağlı kalmaktan kurtarır.
-            return new ELogger();
+            //Burada bir iş geliştirip iş sonucunda ne döndüreceğimize karar verip, fabrikanın nasıl bir logger üreteceğine göre return işlemi yapabiliriz. Buda bizi Log4NetLogger'a bağlı kalmaktan kurtarır.
+            return new Log4NetLogger();
         }
     }
 
@@ -49,6 +50,14 @@ namespace FactoryMethod
         public void Log()
         {
             Console.WriteLine("Logged with ELogger");
+        }
+    }
+
+    public class Log4NetLogger : ILogger
+    {
+        public void Log()
+        {
+            Console.WriteLine("Logged with Log4NetLogger");
         }
     }
 
