@@ -10,7 +10,7 @@ namespace FactoryMethod
     {
         static void Main(string[] args)
         {
-            CustomerManager customerManager = new CustomerManager();
+            CustomerManager customerManager = new CustomerManager(new LoggerFactory());
             customerManager.Save();
             Console.ReadLine();
         }
@@ -25,9 +25,18 @@ namespace FactoryMethod
         }
     }
 
+    public class LoggerFactory2 : ILoggerFactory
+    {
+        public ILogger CreateLogger()
+        {
+            //Burada bir iş geliştirip iş sonucunda ne döndüreceğimize karar verip, fabrikanın nasıl bir logger üreteceğine göre return işlemi yapabiliriz. Buda bizi ELogger'a bağlı kalmaktan kurtarır.
+            return new ELogger();
+        }
+    }
+
     public interface ILoggerFactory
     {
-
+        ILogger CreateLogger();
     }
 
     public interface ILogger
@@ -35,7 +44,6 @@ namespace FactoryMethod
         void Log();
     }
 
-    //ELogger daki E soyadım olan Epik'in esi, kafa karıştırmasın.
     public class ELogger : ILogger
     {
         public void Log()
@@ -46,10 +54,20 @@ namespace FactoryMethod
 
     public class CustomerManager
     {
+        ILoggerFactory _loggerFactory;
+        public CustomerManager(ILoggerFactory loggerFactory)
+        {
+            _loggerFactory = loggerFactory;
+        }
+
         public void Save()
         {
             Console.WriteLine("Saved");
-            ILogger logger = new LoggerFactory().CreateLogger();
+
+            //Aşağıdaki satırda LoggerFactory'e çok bağımlıyız. Yeri geldiğinde başka factory sınıfları kullanmamız gerekebilir.
+            //ILogger logger = new LoggerFactory().CreateLogger();
+
+            ILogger logger = _loggerFactory.CreateLogger();
             logger.Log();
         }
     }
