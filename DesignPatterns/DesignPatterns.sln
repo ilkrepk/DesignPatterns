@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Prototype", "Prototype\Prot
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bulilder", "Bulilder\Bulilder.csproj", "{DC8EFA7D-48A2-4C78-A27B-2DAD0B71A1B7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Facade", "Facade\Facade.csproj", "{33323003-1947-46DB-AF76-62945DB44BC6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{DC8EFA7D-48A2-4C78-A27B-2DAD0B71A1B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DC8EFA7D-48A2-4C78-A27B-2DAD0B71A1B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DC8EFA7D-48A2-4C78-A27B-2DAD0B71A1B7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{33323003-1947-46DB-AF76-62945DB44BC6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{33323003-1947-46DB-AF76-62945DB44BC6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{33323003-1947-46DB-AF76-62945DB44BC6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{33323003-1947-46DB-AF76-62945DB44BC6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
